@@ -55,7 +55,7 @@ const ProyectoState = props =>{
 
         //Obteniendo proyectos desde la BD
         try {
-            const resultado = await clienteAxios.get('http://localhost:4000/api/proyectos');
+            const resultado = await clienteAxios.get('https://mernstack-server.herokuapp.com/api/proyectos');
             console.log(resultado)
             dispatch({
                 type:OBTENER_PROYECTOS,
@@ -82,7 +82,7 @@ const ProyectoState = props =>{
     const agregarProyecto = async proyecto => {
 
         try {
-            const resultado = await clienteAxios.post('http://localhost:4000/api/proyectos',proyecto)
+            const resultado = await clienteAxios.post('https://mernstack-server.herokuapp.com/api/proyectos',proyecto)
             console.log(resultado)
             //Insertar el nuevo proyecto en el state
             dispatch({
@@ -107,7 +107,7 @@ const ProyectoState = props =>{
 
         try {
             //Eliminar de la base de datos
-            await clienteAxios.delete(`http://localhost:4000/api/proyectos/${proyectoID}`);
+            await clienteAxios.delete(`https://mernstack-server.herokuapp.com/api/proyectos/${proyectoID}`);
 
             dispatch({
                 type:ELIMINAR_PROYECTO,

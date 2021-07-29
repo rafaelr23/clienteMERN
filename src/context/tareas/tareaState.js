@@ -47,7 +47,7 @@ const TareaState = (props) => {
         try {
             
             //Obtener tareas de la BD
-            const resultado = await clienteAxios.get(`http://localhost:4000/api/tareas`,{params:{proyecto}})
+            const resultado = await clienteAxios.get(`https://mernstack-server.herokuapp.com/api/tareas`,{params:{proyecto}})
             console.log(resultado)
             dispatch({
                 type:TAREAS_PROYECTO,
@@ -65,7 +65,7 @@ const TareaState = (props) => {
         try {
 
             //Agregar tarea en BD
-            const resultado = await clienteAxios.post(`http://localhost:4000/api/tareas`,tarea)
+            const resultado = await clienteAxios.post(`https://mernstack-server.herokuapp.com/api/tareas`,tarea)
             console.log(resultado);
 
             // dispatch({
@@ -88,7 +88,7 @@ const TareaState = (props) => {
     //Eliminar Tarea por ID
     const eliminarTarea = async (id,proyecto) => {
         try {
-            await clienteAxios.delete(`http://localhost:4000/api/tareas/${id}`,{params:{proyecto}});
+            await clienteAxios.delete(`https://mernstack-server.herokuapp.com/api/tareas/${id}`,{params:{proyecto}});
             dispatch({
                 type:ELIMINAR_TAREA,
                 payload:id
@@ -119,7 +119,7 @@ const TareaState = (props) => {
         console.log(tarea);
         try {
             //Actulizar tarea en BD
-            const resultado = await clienteAxios.put(`http://localhost:4000/api/tareas/${tarea._id}`,tarea)
+            const resultado = await clienteAxios.put(`https://mernstack-server.herokuapp.com/api/tareas/${tarea._id}`,tarea)
             console.log(resultado)
             dispatch({
                 type:ACTUALIZAR_TAREA,

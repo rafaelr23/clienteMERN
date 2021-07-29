@@ -27,7 +27,7 @@ const ListadoProyectos = () => {
 
         obtenerProyectos();
         // eslint-disable-next-line
-    },[msg,mostrarAlerta])
+    },[msg])
 
     //Revisar si proyecto tiene contenido
     if(proyectos.length === 0 ) return <p>No hay proyectos, crea uno nuevo</p>;

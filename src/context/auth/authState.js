@@ -40,7 +40,7 @@ const AuthState = props => {
             const agent = new https.Agent({  
                 rejectUnauthorized: false
             });
-            const respuesta = await clienteAxios.post('http://localhost:4000/api/usuarios',datos, { httpsAgent: agent });
+            const respuesta = await clienteAxios.post('https://mernstack-server.herokuapp.com/api/usuarios',datos, { httpsAgent: agent });
             console.log(respuesta.data);
             dispatch({
                 type:REGISTRO_EXITOSO,
@@ -71,7 +71,7 @@ const AuthState = props => {
         }
 
         try {
-            const respuesta = await clienteAxios.get('http://localhost:4000/api/auth');
+            const respuesta = await clienteAxios.get('https://mernstack-server.herokuapp.com/api/auth');
             console.log(respuesta);
             dispatch({
                 type:OBTENER_USUARIO,
@@ -89,7 +89,7 @@ const AuthState = props => {
     // Cuando el usuario inicia sesion
     const iniciarSesion = async datos => {
         try {
-            const respuesta = await clienteAxios.post('http://localhost:4000/api/auth',datos)
+            const respuesta = await clienteAxios.post('https://mernstack-server.herokuapp.com/api/auth',datos)
             console.log(respuesta);
             dispatch({
                 type:LOGIN_EXITOSO,
@@ -98,7 +98,8 @@ const AuthState = props => {
             // Obtener el usuario
             usuarioAuth();
         } catch (error) {
-            // console.log(error.response.data.errores[0]);
+            console.log(datos);
+             console.log(error.response);
         
                 const alerta = {
                     msg: error.response.data.msg,
